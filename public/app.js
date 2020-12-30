@@ -5,6 +5,12 @@ var posts = document.getElementById("posts")
 var userPost = document.getElementById("userPost");
 let currentUser;
 
+var socket = io("http://localhost:3000/")
+
+socket.on("connection",()=>{
+    console.log("connected");
+})
+
 if (currentUser === undefined || currentUser === null) {
     currentUser = JSON.parse(localStorage.getItem("currentUser"));
 }

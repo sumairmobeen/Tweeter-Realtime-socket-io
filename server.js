@@ -36,6 +36,12 @@ app.use("/",express.static(path.resolve(path.join(__dirname,"public"))));
 const PORT = process.env.PORT || 3000;
 
 
+socket.on("connection" , ()=>{
+    console.log("user connected");
+})
+
+
+
 app.post("/signup", (req, res, next) => {
 
     var currEmail = req.body.userEmail;
@@ -106,10 +112,7 @@ app.post("/login", function (req, res, next) {
 })
 
 app.get("/successfullSignup", (req, res, next) => {
-
     res.send(usersData);
-
-
 });
 
 app.post("/userPost", (req,res,next)=>{
